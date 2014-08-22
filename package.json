@@ -1,0 +1,17 @@
+{
+  "name": "socket-chat-example",
+  "version": "0.0.1-16",
+  "author": "Arron Gibson",
+  "description": "my first socket.io app",
+  "dependencies": {
+    "express": "^4.8.4",
+    "socket.io": "^1.0.6"
+  },
+  "subdomain": "infn8-sockets",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
