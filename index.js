@@ -10,7 +10,7 @@ var score;
 var adminPass = "llcisgoodforme"; // i know this is super shitty.  we'll make it a DB hashed thing later.
 var admins = [];
 
-Object.size = function(obj) {
+sizeObject = function(obj) {
     var size = 0, key;
     for (key in obj) {
         if (obj.hasOwnProperty(key)) size++;
@@ -68,6 +68,10 @@ io.on('connection', function(socket){
 			io.emit('client-hashchange', newHash);
 		}
 	});
+	socket.on('pulse-check', function(response){
+		votes = [];
+		io.emit('pulse-check', "Check It");
+	});
 });
 
 http.listen(3000, function(){
@@ -96,7 +100,7 @@ function updateScore(){
 			}
 		}
 	}
-	var voteLength = Object.size(votes);
+	var voteLength = sizeObject(votes);
 	var newScore = voteLength == 0 ? 0 : sum / voteLength;
 	console.log("Updated Score: " + newScore);
 	return {

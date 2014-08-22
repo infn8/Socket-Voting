@@ -22,6 +22,9 @@ $(document).ready(function() {
   $('.minus-button').click(function(){
     socket.emit('vote', { qty: -1 });
   });
+  $('.pulse-button').click(function(){
+    socket.emit('pulse-check', { clearAll: true });
+  });
   socket.on('score-update', function(score){
     $('.score').text("Plus Votes: " + score.plusCount + " Minus Votes: " + score.minusCount + " Average Score: " + score.score);
     // let's Move the needle
