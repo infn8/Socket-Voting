@@ -69,8 +69,14 @@ io.on('connection', function(socket){
 		}
 	});
 	socket.on('pulse-check', function(response){
-		votes = [];
-		io.emit('pulse-check', "Check It");
+		if(admins.indexOf(socket.id) >= 0){
+			votes = [];
+			io.emit('pulse-check', "Check It");
+		}
+	});
+	socket.on('disconnect', function(response){
+		var where = clients.indexOf(socket.id);
+		clients.splice(where, 1);
 	});
 });
 
@@ -104,6 +110,7 @@ function updateScore(){
 	var newScore = voteLength == 0 ? 0 : sum / voteLength;
 	console.log("Updated Score: " + newScore);
 	return {
+		clients:sizeObject(clients),
 		score:newScore,
 		plusCount:plusCount,
 		minusCount:minusCount

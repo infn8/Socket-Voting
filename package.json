@@ -1,6 +1,6 @@
 {
   "name": "socket-chat-example",
-  "version": "0.0.1-16",
+  "version": "0.0.1-25",
   "author": "Arron Gibson",
   "description": "my first socket.io app",
   "dependencies": {

@@ -1,8 +1,12 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>LLC Dashboard</title>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; padding: 1% }
@@ -39,14 +43,34 @@
         -o-transition: all 1s linear;
         transition: all 1s linear;
       }
-
+      button{
+        font-size: 1.5em;
+      }
+      .score{
+        padding: 1em;
+        position: fixed;
+        bottom: 0;
+      }
+      .controls{
+        position: fixed;
+        z-index: 10;
+        top: 1%;
+        width: 99%;
+        left:1%;
+      }
+      .pulse-button, #admin-login{
+        display: none;
+      }
     </style>
   </head>
   <body>
-    <ul id="messages"></ul>
-    <button class="plus-button">Up Vote <i class="fa fa-thumbs-up"></i></button>
-    <button class="minus-button">Down Vote <i class="fa fa-thumbs-down"></i></button>
-    <button class="pulse-button">Pulse Check <i class="fa fa-bolt"></i></button>
+    <div class="controls">
+      <button class="plus-button">Up Vote <i class="fa fa-thumbs-up"></i></button>
+      <button class="minus-button">Down Vote <i class="fa fa-thumbs-down"></i></button>
+      <button class="pulse-button">Pulse Check <i class="fa fa-bolt"></i></button>
+      <button class="login-button">Admin Login <i class="fa fa-lock"></i></button>
+      <input type="password" id="admin-login">
+    </div>
     <div class="score"></div>
     <div class="guage-img">
 
